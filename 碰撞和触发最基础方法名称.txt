@@ -1,0 +1,7 @@
+	void OnTriggerEnter(Collider collisioner)
+	{ 
+	} 
+
+	void OnCollisionEnter(Collision collisioner)
+	{
+        }

@@ -1,0 +1,13 @@
+string destPath=Path.Combine(@"H:\C#", Path.GetFileName(@"C:\¸èÇú\ËÞµÐ.avi"));
+        System.IO.File.Copy(@"C:\¸èÇú\ËÞµÐ.avi", destPath);
+
+
+File.Copy("Ô´µØÖ·","Ä¿µÄµØÖ·",true);
+
+
+ 
+2
+File.Move(@"d:\a\xiaoming.jpg", @"e:\b");
+File.Move(@"d:\a\xiaohua.jpg", @"e:\b");
+
+System.IO.File.Move("c:/a/xiaoming.jpg", "e:/a/xiaoming.jpg");

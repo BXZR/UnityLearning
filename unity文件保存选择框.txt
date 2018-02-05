@@ -1,0 +1,24 @@
+Unity PC上截屏并保存在自定义路径
+分类：unity
+
+ （171）  （0）
+
+[csharp] view plain copy
+<pre name="code" class="csharp">首先需要在Unity里找到System.Windows.Forms.dll，并且放进工程里的Plugins文件夹里  
+using System.Windows.Forms; //需要引用  
+发布后playersetings--Resolution--Visible in background记得勾上   
+public void Screenshots()  
+    {  
+        SaveFileDialog _SaveFileDialog = new SaveFileDialog();  
+        _SaveFileDialog.InitialDirectory = "C:\\";  
+        _SaveFileDialog.Filter = "Image Files(*.JPG;*.BMP;*.PNG)|*.JPG;*.BMP;*.PNG|All files (*.*)|*.*";  
+        DialogResult result = _SaveFileDialog.ShowDialog();  
+  
+        UnityEngine.Screen.fullScreen = true;  
+        if (result == DialogResult.OK)  
+        {  
+            string path = _SaveFileDialog.FileName;  
+            UnityEngine.Application.CaptureScreenshot(path);  
+        }    </pre><pre name="code" class="csharp">    }</pre>  
+<pre></pre>  
+<link rel="stylesheet" href="http://static.blog.csdn.net/public/res-min/markdown_views.css?v=1.0">  

@@ -1,0 +1,2 @@
+SUCKS正常当做脚本使用
+oninspectorEditor放在Editor下面

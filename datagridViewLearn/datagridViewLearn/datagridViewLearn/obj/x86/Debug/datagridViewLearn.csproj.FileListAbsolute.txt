@@ -1,0 +1,16 @@
+C:\Users\Administrator\Desktop\linkMySQL\datagridViewLearn\datagridViewLearn\bin\Debug\datagridViewLearn.exe.config
+C:\Users\Administrator\Desktop\linkMySQL\datagridViewLearn\datagridViewLearn\bin\Debug\datagridViewLearn.exe
+C:\Users\Administrator\Desktop\linkMySQL\datagridViewLearn\datagridViewLearn\bin\Debug\datagridViewLearn.pdb
+C:\Users\Administrator\Desktop\linkMySQL\datagridViewLearn\datagridViewLearn\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\Administrator\Desktop\linkMySQL\datagridViewLearn\datagridViewLearn\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Administrator\Desktop\linkMySQL\datagridViewLearn\datagridViewLearn\obj\x86\Debug\datagridViewLearn.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\linkMySQL\datagridViewLearn\datagridViewLearn\obj\x86\Debug\datagridViewLearn.exe
+C:\Users\Administrator\Desktop\linkMySQL\datagridViewLearn\datagridViewLearn\obj\x86\Debug\datagridViewLearn.pdb
+C:\Users\Administrator\Desktop\datagridViewLearn\datagridViewLearn\datagridViewLearn\bin\Debug\datagridViewLearn.exe.config
+C:\Users\Administrator\Desktop\datagridViewLearn\datagridViewLearn\datagridViewLearn\obj\x86\Debug\datagridViewLearn.exe
+C:\Users\Administrator\Desktop\datagridViewLearn\datagridViewLearn\datagridViewLearn\obj\x86\Debug\datagridViewLearn.pdb
+C:\Users\Administrator\Desktop\datagridViewLearn\datagridViewLearn\datagridViewLearn\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\Administrator\Desktop\datagridViewLearn\datagridViewLearn\datagridViewLearn\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Administrator\Desktop\datagridViewLearn\datagridViewLearn\datagridViewLearn\obj\x86\Debug\datagridViewLearn.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\datagridViewLearn\datagridViewLearn\datagridViewLearn\bin\Debug\datagridViewLearn.exe
+C:\Users\Administrator\Desktop\datagridViewLearn\datagridViewLearn\datagridViewLearn\bin\Debug\datagridViewLearn.pdb

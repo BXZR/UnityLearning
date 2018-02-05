@@ -1,0 +1,7 @@
+
+我这边是出现过"monodevelop error while trying to load the project 未将对象引用设置到引用"的错误，但是我无视了它，重新打开的mono，如此多次最终就会出现创建脚本，打开monodevelop，monodevelop就是未响应但是以前的脚本处理正常的问题。
+
+
+如果你真的喜欢用mono，可以考虑：
+1 折衷的方法是脚本创建在mono里面做而不是在Unity编辑器里面处理，这样最起码能继续写代码。
+2 阴差阳错的方式是，出现"monodevelop error while trying to load the project 未将对象引用设置到引用"错误别关掉mono，reload Assembly-CSharp，就能恢复。至少在我的机器上就是用这个方法恢复的，你也可以试试看。

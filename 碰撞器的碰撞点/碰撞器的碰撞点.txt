@@ -1,0 +1,7 @@
+	//获取碰撞器的碰撞点
+	void OnCollisionEnter(Collision A)
+	{
+		ContactPoint point = A.contacts [0];
+		Quaternion ro = Quaternion.FromToRotation (Vector3.up , point.normal);
+		Vector3 pos = point.point;
+	}

@@ -1,0 +1,64 @@
+也可以人工控制写
+也可以人工控制写
+也可以人工控制写
+**************************************
+type: Exception
+Trace: logmake.Update ()
+
+information: DivideByZeroException: Division by zero
+**************************************
+type: Exception
+Trace: logmake.Update ()
+
+information: DivideByZeroException: Division by zero
+**************************************
+type: Exception
+Trace: logmake.Update ()
+
+information: DivideByZeroException: Division by zero
+**************************************
+type: Exception
+Trace: logmake.Update ()
+
+information: DivideByZeroException: Division by zero
+**************************************
+type: Exception
+Trace: logmake.Update ()
+
+information: DivideByZeroException: Division by zero
+**************************************
+type: Exception
+Trace: logmake.Update ()
+
+information: DivideByZeroException: Division by zero
+**************************************
+type: Exception
+Trace: logmake.Update ()
+
+information: DivideByZeroException: Division by zero
+**************************************
+type: Exception
+Trace: logmake.Update ()
+
+information: DivideByZeroException: Division by zero
+**************************************
+type: Exception
+Trace: logmake.Update ()
+
+information: DivideByZeroException: Division by zero
+**************************************
+type: Exception
+Trace: logmake.Update ()
+
+information: DivideByZeroException: Division by zero
+**************************************
+type: Exception
+Trace: logmake.Update ()
+
+information: DivideByZeroException: Division by zero
+也可以人工控制写
+也可以人工控制写
+也可以人工控制写
+也可以人工控制写
+也可以人工控制写
+也可以人工控制写

@@ -1,0 +1,46 @@
+using System;
+using System.Data.SqlClient;
+using System.Data;
+public class DB
+{
+static string Sql="server=.;uid=名字;pwd=密码;database=你要连的数据库";
+private SqlConnection objSqlConnection = new SqlConnection(Sql);
+//以上是加载驱动你要连到的数据库
+public int Update(string sql)
+{
+objSqlConnection.Open();
+SqlCommand objSqlCommand = new SqlCommand(sql,objSqlConnection);
+int r=objSqlCommand.ExecuteNonQuery();
+objSqlConnection.Close();
+return r; //r如果是=1就是增删改成功！
+}
+//上面的方法是增删改
+public DataSet Select(string sql)
+{
+DataSet objDataSet = new DataSet();
+SqlDataAdapter objSqlDataAdapter = new SqlDataAdapter(sql,objSqlConnection);
+objSqlDataAdapter.Fill(objDataSet);
+return objDataSet;
+}
+//这个方法是查；
+}
+这是一个连接SQL的类；
+你建这样的一个类，在哪个地方要就实例后调他的方法带入一个参数；
+参数是SQL增删改查的语句；
+如果要在你做的那个程序实现增删改的话就
+DB db = new DB();
+int i = DB.Update(增的SQL语句);
+// 返回的i是1就是成功了！
+===========================
+DB db = new DB();
+int i = DB.Update(删的SQL语句);
+// 返回的i是1就是成功了！
+==========================
+DB db = new DB();
+int i = DB.Update(改的SQL语句);
+// 返回的i是1就是成功了！
+========================如果要查询
+DB db = new DB();
+DataSet ds = new DataSet();
+ds = db.Select(查的SQL语句);
+//查询出的结果就放在ds里面；

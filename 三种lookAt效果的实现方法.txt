@@ -1,0 +1,28 @@
+//萌氏惊叹
+public Transform lookAim ;
+	bool isR = false;
+
+	void looks(){//四元组方法直接看向某一个物体
+		Vector3 pos = lookAim.position - this.transform.position;
+		Quaternion t = Quaternion.LookRotation (pos);
+		this.transform.rotation = t;
+	}
+
+	void looks2(){//Transform类直接看向某一个物体
+		this.transform.LookAt (lookAim.position);
+	}
+
+	void looks3(){//插值法更新旋转最终看向某一个物体
+		if (isR) {
+			Vector3 pos = lookAim.position - this.transform.position;
+			Quaternion t = Quaternion.LookRotation (pos);
+			this.transform.rotation = Quaternion.Slerp (this.transform.rotation ,t,Time .deltaTime *2);
+		}
+	}
+
+	void Update ()
+	{
+		if (Input.GetKeyDown (KeyCode.Space))
+			isR = !isR;
+		looks3();
+	}

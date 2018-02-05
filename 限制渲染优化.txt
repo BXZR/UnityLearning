@@ -1,0 +1,8 @@
+1 遮挡剔除
+
+2 Global Fog
+
+3 LOD 分组
+（http://docs.unity3d.com/Manual/class-LODGroup.html）
+
+4 最基本的：在几何体制作的时候优化

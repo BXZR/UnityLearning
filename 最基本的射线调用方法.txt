@@ -1,0 +1,20 @@
+
+	void attackDemo()
+	{
+		if (Input.GetMouseButtonDown (0))
+		{
+			Ray mRay = Camera.main.ScreenPointToRay (Input.mousePosition);
+			RaycastHit mHi;
+			if (Physics.Raycast (mRay, out mHi)) 
+			{
+				if (mHi.collider.gameObject.transform.name == "head") 
+				{
+					print ("Õ∑");
+				}
+				else if(mHi.collider.gameObject.transform.name == "leg") 
+				{
+					print ("Õ»");
+				}
+			}
+		}
+	}

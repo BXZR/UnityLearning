@@ -1,0 +1,27 @@
+	public void publicSave (string Path,double  information,bool canEncode)
+	{
+		FileStream aFile = new FileStream (@"" + Path + dataFileEnd, FileMode.OpenOrCreate);
+		StreamWriter sw = new StreamWriter (aFile);
+		string trueinformation=information.ToString();
+		if (canEncode) 
+		{
+			trueinformation =EncodeBasic(information.ToString() );		
+		}
+		sw.Write (trueinformation);
+		sw.Close();
+		sw.Dispose();
+		
+	}
+	////
+
+
+	public static string publicLoadStatic(string Path)
+	{
+		FileStream aFile = new FileStream(@""+Path+dataFileEnd, FileMode.OpenOrCreate );
+		
+		StreamReader sw = new StreamReader	(aFile); 
+		string information=sw.ReadLine();
+		sw.Close ();
+		sw.Dispose ();
+		return information;
+	}

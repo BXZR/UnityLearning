@@ -1,0 +1,79 @@
+using UnityEngine;
+using System.Collections;
+
+public class fakeFather : MonoBehaviour
+{
+
+	public Transform theFather;
+	public Transform theChild;
+
+	private Vector3 fatherChildOffset; 
+	float angle;  
+	Vector3 axis = Vector3.zero;  
+	Quaternion aoffset ;
+	//---------------------------------------------------------------------------------------------------------------------//
+	void fatheMove()
+	{
+		
+		theFather.transform.Translate (new Vector3(0,0,1) *Time.deltaTime);
+		theChild.transform .position = theFather.transform.position +theFather.transform.rotation* fatherChildOffset;
+	}
+
+	void fatherRotate()
+	{
+		theFather.transform.Rotate (new Vector3 (0, 1, 0) * 50 * Time.deltaTime);
+  
+		//使用AngleAxis设置B的rotation，使得B的rotation状态的和A相同  
+		//当然也可以只使得B与A的axis相同，而angle不同  
+		//可以在程序运行时修改A的rotation查看B的状态  
+		theChild.transform .position = theFather.transform.position +theFather.transform.rotation* fatherChildOffset;
+		theChild.rotation = Quaternion.AngleAxis(angle,axis) *  theChild.rotation;
+	}
+
+	void childMove()
+	{
+		theChild.transform.Translate (this.transform.right *Time.deltaTime);
+		fatherChildOffset = theChild.transform.position - theFather.transform.position ;
+	}
+
+	void childRotate()
+	{
+		theChild .transform.Rotate (new Vector3 (0, 1, 0) * 50 * Time.deltaTime);
+		aoffset = Quaternion.Inverse (theFather.transform.rotation) * theChild.transform.rotation;
+	}
+ 
+	//---------------------------------------------------------------------------------------------------------------------//
+	//修正子物体的位置
+	void fixedChild()
+	{
+		theChild.transform .position = theFather.transform.position +theFather.transform.rotation* fatherChildOffset;
+		theChild.rotation = theFather.transform.rotation * aoffset ;
+	}
+
+	void Start ()
+	{
+		theFather.rotation.ToAngleAxis(out angle, out axis);
+		fatherChildOffset = theChild.transform.position - theFather.transform.position ;
+		aoffset = Quaternion.Inverse (theFather.transform.rotation) * theChild.transform.rotation;
+	}
+
+	bool use = false;
+	// Update is called once per frame
+	void Update ()
+	{
+		if (Input.GetKey (KeyCode.LeftArrow))
+			fatheMove ();
+		if (Input.GetKey (KeyCode.RightArrow))
+			childMove ();
+		if (Input.GetKey (KeyCode.UpArrow))
+			fatherRotate();
+		if (Input.GetKey (KeyCode.DownArrow))
+			childRotate ();
+
+		if (Input.GetKeyDown (KeyCode.Space))
+			use = !use;
+		if(use)
+		fixedChild ();
+	}
+}
+

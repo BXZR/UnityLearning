@@ -1,0 +1,10 @@
+如图Canvas的的渲染模式有三种类型：Screen Space-Overlay，Screen Space-Camera，World Space。
+
+Screen Space-Overlay模式：
+    这个个人认为就是最贴近于GUI这个概念的模式，其实就是UI始终在3D场景之前，并且如果改变屏幕尺寸，Canvas也会随之匹配。
+
+Screen Space-Camera模式：
+    这个相当于在指定的摄像机前面贴一个面板，所有的Canvas的内容会在这个面板中展示，因为可以调整距离，所以可以实现3D场景内容在UI之前的情况。
+
+World Space模式：
+    这个模式简言之就是将UI当做Sprite来使用，所以可以实现3D场景在UI之前、头顶血条这种的效果。
