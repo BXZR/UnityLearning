@@ -1,0 +1,5 @@
+	void gameEffect(GameObject aim)
+	{
+		aim.gameObject.AddComponent (System.Type.GetType (nameForEffectOfProp));
+		Destroy (this.gameObject);
+	}
