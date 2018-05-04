@@ -1,0 +1,38 @@
+	//将横版字符串修改为竖版
+	//startFromLeft右边对齐还是左边对齐
+	//theCountPerColumn 一列有多少个字
+	public static  string rowStringToColumn(string information , int theCountPerColumn = 7 , bool startFromLeft = true)
+	{
+		string returnString = "";
+		theCountPerColumn = theCountPerColumn <= 0 ? 1 : theCountPerColumn;
+		int rount = information.Length / theCountPerColumn;
+		int thisRount = 0;
+
+		for (int k = 0; k < theCountPerColumn; k++) 
+		{
+			string clip = "";
+			for (int i = 0; i < information.Length; i++) 
+			{
+				if (i % theCountPerColumn == k)
+				{
+					clip += information [i];
+				}
+				print ("clip = "+ clip);
+			}
+			while(clip.Length < rount+1)
+				clip += "    ";
+			returnString += startFromLeft? clip : ArrayReverse(clip);
+			returnString += "\n";
+		}
+
+		Debug.Log (returnString);
+		return returnString;
+	}
+	//字符串倒转
+	public static string ArrayReverse(string text)
+	{
+		char[] charArray = text.ToCharArray();
+		System.Array.Reverse(charArray);
+
+		return new string(charArray);
+	}
