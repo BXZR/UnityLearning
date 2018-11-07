@@ -1,0 +1,35 @@
+	//全是鼠标点击
+	//如果射线命中的是UI，就执行UI操作，否则就是一般的鼠标嗲你操作
+	//返回的是UI类别，不同类别的操作不同
+	//0 -> 不是UI
+	//1 -> 对话文本框
+	int isOperatingUI ()
+	{
+
+		//因为我写的比较少，所以目前也就支持PC和按照两种平台的简单交互了
+		if(Application .platform == RuntimePlatform.Android)
+		{
+		  if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId)) 
+			{
+				//print  ("当前触摸在UI上");
+				return 1;
+			} 
+			else 
+			{
+				//print  ("当前没有触摸在UI上");
+				return 0;
+			}
+
+		}
+		//这是两个平台的不同判断方法
+		else if (EventSystem.current.IsPointerOverGameObject ())
+		{
+			//print  ("当前触摸在UI上");
+			return 1;
+		} 
+		else 
+		{
+			//print  ("当前没有触摸在UI上");
+			return 0;
+		}
+          }
