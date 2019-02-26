@@ -1,0 +1,19 @@
+（1）选择文件夹 
+private void SelectFolder() 
+{ 
+FolderBrowserDialog fbd = new FolderBrowserDialog(); 
+if (fbd.ShowDialog() == DialogResult.OK) 
+{ 
+filePath = fbd.SelectedPath; 
+} 
+} 
+（2）选择文件 
+private void SelectFile() 
+{ 
+OpenFileDialog ofd = new OpenFileDialog(); 
+ofd.InitialDirectory = “file” + UnityEngine.Application.dataPath;默认打开路径 
+if (ofd.ShowDialog() == DialogResult.OK) 
+{ 
+Debug.Log(ofd.FileName); 
+} 
+}

@@ -1,0 +1,119 @@
+一、Label
+
+  #region 四个角定位
+
+        GUI.Label(new Rect(30, 10, 100, 200), "zzzzzz");
+        GUI.Label(new Rect(30, Screen.height - 50, 100, 200), "zzzzzz");
+        GUI.Label(new Rect(Screen.width - 50, Screen.height - 50, 100, 200), "zzzzzz");
+        GUI.Label(new Rect(Screen.width - 50, 10, 100, 200), "zzzzzz");
+        #endregion
+
+
+
+二、Button
+
+  GUI.Label(new Rect(30, 30, 100, 200), "Button");
+        GUI.Button(new Rect(30, 50, 50, 50), "这个是一个按钮");
+        GUI.Button(new Rect(90, 50, 50, 50), text);
+        //带图片带文字的按钮
+        GUIContent guic = new GUIContent("按钮", text);
+        GUI.Button(new Rect(150, 50, 50, 50), guic);
+        //按键从上往下排 自动排序
+        if (GUILayout.Button("1"))
+            Debug.Log("1");
+        if (GUILayout.Button("2"))
+            Debug.Log("2");
+        if (GUILayout.Button("3"))
+            Debug.Log("3");
+        if (GUILayout.Button("4"))
+            Debug.Log("4");
+        if (GUILayout.Button("5"))
+            Debug.Log("5");
+        if (GUILayout.Button("6"))
+            Debug.Log("6");
+        if (GUILayout.Button("7"))
+            Debug.Log("7");
+        if (GUILayout.Button("8"))
+            Debug.Log("8");
+
+
+
+三、Toggle控件
+
+      GUI.Label(new Rect(30, 100, 100, 200), "Toggle");
+      toggle1 = GUI.Toggle(new Rect(30, 120, 100, 30), toggle1, "Toggle");
+      toggle2 = GUI.Toggle(new Rect(30, 150, 100, 30), toggle2, text);
+
+
+
+四、滑动条
+
+    GUI.Label(new Rect(30, 180, 100, 200), "滑动条");
+        hSliderValue = GUI.HorizontalSlider(new Rect(30, 200, 100, 30), hSliderValue, 0, 10);
+        Show("水平滑动条:" + hSliderValue);
+        vSliderVaule = GUI.VerticalSlider(new Rect(0, 200, 30, 100), vSliderVaule, 0, 10);
+
+
+
+五、Toolbar
+
+  toolbarInt = GUI.Toolbar(new Rect(30, 250, 250, 30), toolbarInt, new string[] { "功能一", "功能二", "功能三" });
+        if (lastValue != toolbarInt)
+        {
+            if (toolbarInt == 0)
+                Debug.Log(1111);
+            if (toolbarInt == 1)
+                Debug.Log(2222);
+            if (toolbarInt == 2)
+                Debug.Log(3333);
+            lastValue = toolbarInt;
+        }
+
+
+
+六、Scrollbar
+
+  GUI.Label(new Rect(30, 300, 100, 200), "Scrollbar");
+        hSbarValue = GUI.HorizontalScrollbar(new Rect(30, 320, 100, 30), hSbarValue, 1.0f, 0.0f, 10.0f);
+        vSbarValue = GUI.VerticalScrollbar(new Rect(0, 320, 30, 100), vSbarValue, 1.0f, 0.0f, 10.0f);
+
+
+
+七、菜单
+
+        GUI.Box(new Rect(30, 350, 100, 100), "Menu");
+        if (GUI.Button(new Rect(40, 370, 80, 20), "1"))
+
+
+
+八、TextField
+
+  useNmae = GUI.TextField(new Rect(Screen.width / 2, Screen.height / 2 - 200, 150, 30), useNmae);
+        //*****密码字符的掩码字符
+        passWord = GUI.PasswordField(new Rect(Screen.width / 2, Screen.height / 2 - 150, 150, 30), passWord, '*', 25);
+        if (GUI.Button(new Rect(Screen.width / 2, Screen.height / 2 - 50, 150, 30), "登录"))
+        {
+            isBntLogin = true;
+            Debug.Log(isBntLogin+ "isBntLogin");
+            if (useNmae.Equals("admin") && passWord.Equals("123"))
+            {
+                isSuccess = true;
+                GUI.Label(new Rect(500, 350, 150, 30), "登录成功");
+            }
+            else
+            {
+                isSuccess = false;
+                GUI.Label(new Rect(500, 350, 150, 30), "登录失败");
+            }
+
+
+        }
+        if (isBntLogin)
+        {
+            if (isSuccess)
+                GUI.Label(new Rect(Screen.width / 2, Screen.height / 2 + 50, 150, 30), "登录成功");
+            else
+            {
+                GUI.Label(new Rect(Screen.width / 2, Screen.height / 2 + 50, 150, 30), "登录失败");
+            }
+        }
