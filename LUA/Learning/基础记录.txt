@@ -1,0 +1,54 @@
+输入数字 io.read("*number")
+输出 print("输出内容")
+
+方法
+function a(n)
+方法体
+end
+
+type(变量或者方法) 获得类型（LUA自己判定类型）
+数字0和空字符串也可以作为true使用，只有nil和false是假
+
+#"hello" 得到"hello"的长度为5
+其实#可以认为是获取长度的运算符了
+
+for循环的写法
+for i =1,100 do print("i = " .. i) end
+
+//数值转换的方法
+tonumber("1") = 1
+
+~= 判断是否相等
+
+
+多重赋值
+a,b = 1,2
+a=1,b=2
+特性方法：a,b, = b,a 交换ab的值
+
+LUA的控制结构
+if then else end
+if a<b then print(a) else print(b) end
+if a<b then print(a) elseif a<c then print(c) else print(b) end
+
+while a<5 do
+ a = a+1
+end
+
+repeat
+   a = a+1
+until a>55
+
+
+for var =a ,b,c do
+end
+a:初始值
+b:目标值
+c:步长，默认是1
+
+math.huge(无穷大)
+
+for i ,v in ipairs(a) do print (v)// end i可以用于存放id
+for v in ipairs(a) do print (v) end //这样写的话v就是id
+
+do return end 一种比较强力的return方式

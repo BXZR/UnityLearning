@@ -1,0 +1,2 @@
+luanet.dll和lua51.dll放到exe同级文件之下
+添加reference LuaInterface.dll
