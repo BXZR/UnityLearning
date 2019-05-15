@@ -1,0 +1,16 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
+using UnityEngine.AI;
+
+public class ASData :Editor
+{
+    [MenuItem("[Framework]/Load nav")]
+    static void LOAD()
+    {
+        NavMeshData d =  AssetDatabase.LoadAssetAtPath<NavMeshData>(@"Assets\demodemo\NavMesh.asset");
+        Debug.Log(d.sourceBounds.size);
+    }
+
+}
