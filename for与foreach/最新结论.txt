@@ -1,0 +1,3 @@
+可以看一下foreach的源码
+似乎foreach的速度会比for快
+foreach还是会有GC

@@ -1,0 +1,1 @@
+如果没有设置到GraphicsSetting-> always included shader中，那么会打包到依赖它的ab中，如果设置了就不会打包进去。而是再构建的时候，就导入到你的游戏。

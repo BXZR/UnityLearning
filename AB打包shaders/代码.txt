@@ -1,0 +1,22 @@
+  //º”»ÎµΩAlways Included Shaders
+    private void MakeAdd()
+    {
+        SerializedObject graphicsSettings = new SerializedObject(AssetDatabase.LoadAllAssetsAtPath("ProjectSettings/GraphicsSettings.asset")[0]);
+        SerializedProperty it = graphicsSettings.GetIterator();
+        SerializedProperty dataPoint;
+        while (it.NextVisible(true))
+        {
+            if (it.name == "m_AlwaysIncludedShaders")
+            {
+                it.ClearArray();
+                for (int i = 0; i < shaderInPackage.Count; i++)
+                {
+                    it.InsertArrayElementAtIndex(i);
+                    dataPoint = it.GetArrayElementAtIndex(i);
+                    dataPoint.objectReferenceValue = Shader.Find(shaderInPackage[i]);
+                    //print(dataPoint.objectReferenceValue.name);
+                }
+                graphicsSettings.ApplyModifiedProperties();
+            }
+        }
+    }
