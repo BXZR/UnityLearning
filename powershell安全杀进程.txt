@@ -1,0 +1,1 @@
+if ( [bool](Get-Process Unity -EA SilentlyContinue) ) { Get-Process -Name Unity | Stop-Process  -EA Continue } else {echo "There is no Unity process"}
