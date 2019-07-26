@@ -1,0 +1,24 @@
+  public void GetFile(string folderPath)
+        {
+            if (!Directory.Exists(folderPath))
+            {
+                Console.WriteLine("文件夹 " + folderPath + "不存在。");
+                return;
+            }
+            DirectoryInfo dir = new DirectoryInfo(folderPath);
+            FileSystemInfo[] files = dir.GetFileSystemInfos();
+            for (int i = 0; i < files.Length; i++)
+            {
+                //如果是文件夹则递归处理
+                if (files[i] is DirectoryInfo)  
+                {
+                    //只是递归下去
+                    GetFile(files[i].FullName);
+                }
+                //如果是文件的话，排除掉一些文件
+                else if (!files[i].Name.EndsWith(".meta") && !files[i].Name.EndsWith(".manifest"))
+                {
+                     //操作
+                }
+            }
+        }
