@@ -1,0 +1,13 @@
+在WPF中,使用Microsoft.Win32.OpenFileDialog只能选择文件,FolderBrowserDialog只能用树型的方式选择文件夹,很不好用.
+
+终于找到一个办法,使用Windows API Code Pack
+
+在VS里打开Package Manager Console后输入Install-Package WindowsAPICodePack-Shell获取包后
+
+就可以像这样打开选择文件夹Dialog了:
+
+//------------------------------------------------------------------//
+var dialog = new CommonOpenFileDialog();
+dialog.IsFolderPicker = true;
+CommonFileDialogResult result = dialog.ShowDialog();
+MessageBox.Show(result.ToString() +" -=-=-=-=- "+ dialog.FileName);
