@@ -1,0 +1,8 @@
+
+        //编译结果返回
+        [UnityEditor.Callbacks.DidReloadScripts]
+        private static void OnReloadScripts()
+        {
+            EditorUtility.DisplayDialog("提示", "编译结束", "确定");
+        }
+

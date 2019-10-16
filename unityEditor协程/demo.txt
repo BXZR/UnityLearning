@@ -1,0 +1,7 @@
+ IEnumerator  PackageOperate()
+{
+  yield return null;
+}
+
+
+ EditorCoroutineRunner.StartEditorCoroutine(PackageOperate());

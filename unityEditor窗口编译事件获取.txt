@@ -1,0 +1,26 @@
+        //editor窗体类：
+  public class PackagerWindow : EditorWindow
+
+        private void OnEnable()
+        {
+            CompilationPipeline.assemblyCompilationStarted -= AssemblyCompilationStartedCallback;
+            CompilationPipeline.assemblyCompilationFinished -= AssemblyCompilationFinishedCallback;
+        }
+
+        private void OnDestroy()
+        {
+            CompilationPipeline.assemblyCompilationStarted -= AssemblyCompilationStartedCallback;
+            CompilationPipeline.assemblyCompilationFinished -= AssemblyCompilationFinishedCallback;
+        }
+
+
+
+        private void AssemblyCompilationStartedCallback(string AssemblyName)
+        {
+            CLog.Log(string.Format("当前程序集（{0}）开始编译", AssemblyName));
+        }
+
+        private void AssemblyCompilationFinishedCallback(string AssemblyName, CompilerMessage[] compilerMessages)
+        {
+            CLog.Log(string.Format("当前程序集（{0}）编译完毕", AssemblyName));
+        }
