@@ -1,0 +1,6 @@
+namespace Game;
+table Data {
+    Id:uint;
+    Name:string;
+}
+root_type Data;
