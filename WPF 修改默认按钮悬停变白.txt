@@ -1,0 +1,27 @@
+如果你想在应用程序的所有按钮将此风格，那么这种风格可以插入Application.Resources部分的App.xaml页面。
+
+ <Window.Resources>
+     <Style x:Key="MyButton" TargetType="Button">
+         <Setter Property="OverridesDefaultStyle" Value="True" />
+         <Setter Property="Cursor" Value="Hand" />
+         <Setter Property="Template">
+             <Setter.Value>
+                 <ControlTemplate TargetType="Button">
+                     <Border Name="border" BorderThickness="0" BorderBrush="Black" Background="{TemplateBinding Background}">
+                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                     </Border>
+                     <ControlTemplate.Triggers>
+                         <Trigger Property="IsMouseOver" Value="True">
+                             <Setter Property="Opacity" Value="0.8" />
+                         </Trigger>
+                     </ControlTemplate.Triggers>
+                 </ControlTemplate>
+             </Setter.Value>
+         </Setter>
+     </Style>
+ </Window.Resources>
+
+
+调用方式
+
+<Button Style="{StaticResource MyButton}"></Button>
