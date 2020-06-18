@@ -1,0 +1,5 @@
+            //判断这个是不是预设物
+            if(PrefabUtility.GetPrefabParent(Selection.activeObject) == null && PrefabUtility.GetPrefabObject(Selection.activeObject) != null)
+            {
+                 
+            }
