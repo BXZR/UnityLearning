@@ -1,0 +1,41 @@
+        private void DrawAllStringPaths(SerializedObject serializedObj)
+        {
+            EditorGUILayout.LabelField("路径字段", EditorStyles.boldLabel);
+
+            SerializedProperty prop = serializedObj.GetIterator();
+            bool enterChildren = true;
+
+            while (prop.NextVisible(enterChildren))
+            {
+                enterChildren = false;
+
+                if (prop.propertyType != SerializedPropertyType.String)
+                    continue;
+
+                string label = prop.displayName;
+                string path = prop.stringValue;
+
+                if (string.IsNullOrEmpty(path))
+                    continue;
+
+                // 是否是 Unity 项目路径（例如 Assets/...）
+                bool isLikelyPath = path.StartsWith("Assets") || path.Contains("/") || path.Contains("\\");
+                if (!isLikelyPath)
+                    continue;
+
+                string fullPath = Path.GetFullPath(Path.Combine(Application.dataPath.Replace("Assets", ""), path));
+             
+                EditorGUILayout.TextField(label, path);
+
+                if (GUILayout.Button("打开", GUILayout.Width(40)))
+                {
+                    if (Directory.Exists(fullPath) || File.Exists(fullPath))
+                    {
+                        EditorUtility.RevealInFinder(fullPath);
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"路径不存在，无法打开：{fullPath}");
+                    }
+                }
+            }
