@@ -1,0 +1,157 @@
+package hello;
+public class IsPrime {
+
+    public static void main(String[] args) {
+
+        int num = 17;
+        
+        nextPrime(num);
+        boolean bool = false;
+        bool = isPrime(num);
+        if (bool) {
+            System.out.println(num + " is a prime number");
+        } else {
+            System.out.println(num + " is not a prime number");
+        }
+
+        bool = isPrime6(num);
+        if (bool) {
+            System.out.println(num + " is a prime number proofed by isPrime6");
+        } else {
+            System.out.println(num + " is not a prime number proofed by isPrime6");
+        }
+        System.out.println("应用实例——找到两个自然数之间的素数");
+        int begin = 0, end = 101300;
+        long beginT = System.currentTimeMillis();
+        findAllPrimeNumbers(begin, end);
+        long middle = System.currentTimeMillis();
+        System.out.println(middle - beginT + "是耗时时长。下面使用筛选法找到小于这个整数的所有素数");
+        screenPrimeNum(end);
+        System.out.println("筛选法耗时是 " + (System.currentTimeMillis() - middle));
+     }
+
+    /**
+     * @param num
+     * @return true is a prime number
+     */
+    private static boolean isPrime(int num) {
+        if (num < 2) {
+            return false;
+        }
+        // you can also use i <= p / 2
+        int sqrt = 1 + (int) Math.sqrt(num);
+        for (int i = 2; i < sqrt; i++) {
+            // 若能被整除，则说明是合数，返回false
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 以6为步长，校验一个数字是否为质数
+     * @param num
+     * @return true is a prime number
+     */
+    public static boolean isPrime6(int num) {
+        if (num <= 3) {
+            return num > 1;
+        }
+        // 不在6的倍数两侧的一定不是质数
+        if (num % 6 != 1 && num % 6 != 5) {
+            return false;
+        }
+        int sqrt = 1 + (int) Math.sqrt(num);
+        //在6的倍数两侧的也可能不是质数
+        for (int i = 5; i < sqrt; i += 6) {
+            if (num % i == 0 || num % (i + 2) == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 判断n是否为素数
+     * <p>
+     * 不能被2~n-1间的整数整除则为素数，返回 true
+     *
+     * @param num
+     * @return true 是素数
+     */
+    private static boolean isPrimeTraversal(int num) {
+        System.out.println("方法名：isPrimeTraversal");
+        if (num < 2) {
+            return false;
+        }
+
+        int j;
+        for (j = 2; j < num; j++) {
+            if (num % j == 0) {
+                System.out.println(num + " is not a prime number");
+                return false;
+            }
+        }
+        System.out.println(num + " is a prime number");
+        return true;
+    }
+
+    /**
+     * 找到两个自然数之间的素数
+     */
+    private static void findAllPrimeNumbers(int begin, int end) {
+        StringBuilder sb = new StringBuilder();
+        for (; begin <= end; begin++) {
+            if (isPrime6(begin)) {
+                sb = sb.append(begin).append(",");
+            }
+        }
+        System.out.println(sb.substring(0, sb.length() - 1));
+    }
+
+    /**
+     * 查询自然数的、2的倍数（2*num）之后的第一个素数
+     * @param num
+     *
+     */
+    private static void nextPrime(int num) {
+        num = 2 * num;
+        StringBuilder sb = new StringBuilder();
+        while (true) {
+            if (isPrime6(num)) {
+                break;
+            }
+            num ++;
+        }
+        System.out.println("自然数两倍之后的第一个素数是：" + num);
+    }
+
+    /**
+     * 筛选法查找区间[0, n) 所有素数
+     * @param n
+     */
+    private static void screenPrimeNum(int n) {
+        // 数组bs初始化时默认值为false
+        boolean[] bs = new boolean[n];
+
+        for (int i = 2; i < n; i++) {// 从2开始
+            for (int j = i + 1; j < n; j++) { //从i+1循环就行
+                if (j % i == 0) {
+                    // j是质数i的倍数，把bs[j]赋值为true
+                    bs[j] = true;
+                }
+            }
+        }
+        StringBuilder sb = new StringBuilder();
+        // 0和1不是质数，因此从2开始循环
+        for (int i = 2; i < n; i++) {
+            // 元素为false的下标就是我们苦苦寻觅的素数
+            if (!bs[i]) {
+                sb = sb.append(i).append(",");
+            }
+        }
+        System.out.println(sb.substring(0, sb.length() - 1));
+    }
+
+}
