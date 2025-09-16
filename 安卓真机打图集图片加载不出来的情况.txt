@@ -1,0 +1,60 @@
+状况1：真机状况下引用到图集下的sprite的UI显示出错。（图集被打成AB包且勾选了Include in Build）.
+
+
+
+在我们的测试下发现了以下两个解决方案：（当然我觉得第二个最好）
+
+1.在加载相应UI前，将sprite所属图集(spriteAtlas)提前加载到内存中。(相当麻烦，你得知道自己的sprite属于哪个图集，并且需要相应的一套资源加载的框架)。
+
+2.调用unity提供的回调atlasRequested，手动绑定图集。（untiy2018以后才提供用协程异步加载图集）
+
+
+
+
+解决方法有了，我们来测试一下寻找一下造成这个错误的原因。
+
+测试记录：unity2017.3.0f3 (注意：图集要删了重新弄打包，不然改变include in build再次打AB包，AB包跟着上次的来不变）
+
+SpriteAtlas打AB包，并在场景中加载带sprite引用的UI预制体：
+
+A组：（UnityEditor，不注册事件）
+
+1.勾选Include in Build , 正常显示
+
+2.不勾选Include in Build，不显示，并警告SpriteAtlasManager.atlasRequested wasn't listened to while RGB requested.
+
+B组：（UnityEditor，注册事件）
+
+1.勾选Include in Build,，正常显示，但不触发atlasRequested事件。
+
+2.不勾选Include in Build，正常显示，并触发atlasRequested事件。
+
+
+
+C组：（Android真机，不注册事件）
+
+1.勾选Include in Build,不显示，并警告SpriteAtlasManager.atlasRequested wasn't listened to while RGB requested.（我反复确认了3次，应该是uinty这个版本自己的BUG了）
+
+2.不勾选Include in Build，不显示,并警告SpriteAtlasManager.atlasRequested wasn't listened to while RGB requested.
+
+D组：（Android真机，注册事件）
+
+1.勾选Include in Build，正常显示图片，仍然加载atlasRequested事件。（反复确认了两次……）
+
+2.不勾选Include in Build，正常显示图片，触发atlasRequested事件。
+
+总结：
+
+这次测试结果来看，在编辑器下的事件结果（也就是A组和B组）是完全符合Unity官方文档的。
+
+C组1号 和 D组1号是和官方文档的结论好像不太一样。
+
+C组1号勾选了Include in Build居然还是不能正常显示，不过和我们项目开发中遇到的问题是一样的。
+
+D组1号也是出乎我意料的，勾选了Include in Build注册事件，按理说是正常触发且不触发事件的，不过在C组1号的基础上倒是合理，找不到spriteAtlas，于是乎根据事件找到spriteAtlas.
+
+所以C组1号和D组1号其实是一个BUG，那就是android真机上atlas打AB包就算勾了Include in Build也不会找到相关的spriteAtlas（不打AB包还没试过）。
+
+结论：
+
+所以在Android真机打spriteAtlas上我还是建议：不勾选Include in Build用事件来绑定。
